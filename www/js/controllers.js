@@ -14,6 +14,9 @@ angular.module('starter.controllers', [])
     .controller('AccountCtrl', function ($scope) {
     })
 
-    .controller('InfoCtrl', function ($scope) {
-
+    //Controller Info Page
+    .controller('InfoCtrl', function ($scope, User) {
+        $scope.username = User.getUser().username;
+        $scope.phoneNumber = User.getUser().phoneNumber;
+        $scope.$apply();
     });
