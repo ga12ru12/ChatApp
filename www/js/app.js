@@ -85,10 +85,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                         controller: 'InfoCtrl'
                     }
                 }
+            })
+            .state('tab.chat', {
+                url: '/chat',
+                views: {
+                    'tab-chat': {
+                        templateUrl: 'templates/tab-chat.html',
+                        controller: 'ChatCtrl'
+                    }
+                }
             });
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/tab/dash');
+        $urlRouterProvider.otherwise('/tab/chat');
 
     });
 

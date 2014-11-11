@@ -1,1 +1,23 @@
 /* Empty. Add your own CSS if you like */
+.contentChat{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    bottom: 70px;
+}
+ion-content{
+    height: 100%;
+    position: relative;
+}
+.chatAction{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.chatAction input{
+    height: 50px;
+    line-height: 40px;
+}
