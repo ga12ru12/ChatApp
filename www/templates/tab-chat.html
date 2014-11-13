@@ -1,15 +1,16 @@
 <!--<script type="application/javascript" src="/JqueryUI/chat.js"></script>-->
-<ion-view title="Chat Board">
+<ion-view title="Chat Board" class="chatBoard">
     <ion-content>
-        <!--<h1>Chat</h1>-->
-        <div class="contentChat"></div>
-        <div class="item item-input-inset chatAction">
-            <label class="item-input-wrapper">
-                <input type="text" placeholder="Content" ng-model="chatContent">
-            </label>
-            <button class="button button-clear">
-                Submit
-            </button>
+        <div class="layout">
+            <div class="contentChat"></div>
+            <div class="item item-input-inset chatAction">
+                <label class="item-input-wrapper">
+                    <input type="text" placeholder="Content" ng-model="message" ng-enter="chatAction(message)">
+                </label>
+                <button class="button button-clear">
+                    Submit
+                </button>
+            </div>
         </div>
     </ion-content>
 </ion-view>

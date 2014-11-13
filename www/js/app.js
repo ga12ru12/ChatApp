@@ -5,6 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+var $jq = jQuery.noConflict();
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     .run(function ($ionicPlatform) {
@@ -19,6 +20,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                 StatusBar.styleDefault();
             }
         });
+    })
+
+    .directive('ngEnter', function () {
+        return function (scope, element, attrs) {
+            element.bind("keydown keypress", function (event) {
+                if (event.which === 13) {
+                    scope.$apply(function () {
+                        scope.$eval(attrs.ngEnter);
+                    });
+
+                    event.preventDefault();
+                }
+            });
+        };
     })
 
     .config(function ($stateProvider, $urlRouterProvider) {
@@ -80,7 +95,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             .state('tab.info', {
                 url: '/info',
                 views: {
-                    'tab-info':{
+                    'tab-info': {
                         templateUrl: 'templates/tab-info.html',
                         controller: 'InfoCtrl'
                     }

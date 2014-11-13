@@ -25,7 +25,7 @@ angular.module('starter.services', [])
         }
     })
     .factory('socket', function ($rootScope) {
-        var socket = io.connect(window.serverSocketIO);
+        var socket = io.connect('http://nodejs-ga12ru12.rhcloud.com:8443');
         socket.on('error', function () {
             alert('Connect to server fail');
         });

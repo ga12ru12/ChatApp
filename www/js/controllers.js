@@ -15,8 +15,20 @@ angular.module('starter.controllers', [])
     })
 
     //Controller ChatBoard Page
-    .controller('ChatCtrl', function($scope, User){
+    .controller('ChatCtrl', function($scope, User, socket){
+        $scope.chatAction = function(data){
+            addContent('Me', data);
+            socket.emit('chat',{message: data, user: User.getUser().username});
+        }
 
+        socket.on('chat', function(data){
+            console.log(data);
+            addContent(data.user, data.message);
+        });
+
+        function addContent(name, content){
+            $jq('.chatBoard .contentChat').append('<div><label>'+name+': </label><span>'+content+'</span></div>');
+        }
     })
 
     //Controller Info Page
